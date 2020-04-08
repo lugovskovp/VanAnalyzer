@@ -70,6 +70,8 @@ Note - This repository contains a submodule. Be sure to include submodules when 
 
 To build on Windows, open the visual studio project in the Visual Studio folder, and build. The Visual Studio solution has configurations for 32 bit and 64 bit builds. You will likely need to switch the configuration to 64 bit and build that in order to get the analyzer to load in the Windows software.
 
+*Note: you must use at least version Visual Studio 2019. In project properties set Visual Studio 2017 (v141) - but compiled in VS2017 version was wrong.
+
 To build on Linux or OSX, run the build_analyzer.py script. The compiled libraries can be found in the newly created debug and release folders.
 
 	python build_analyzer.py
@@ -81,11 +83,13 @@ Unfortunately, debugging is limited on Windows to using an older copy of the Sal
 ## Installing
 
 In the Developer tab in Logic preferences, specify the path for loading new plugins, then copy the built plugin into that location.
+*Note: Compiled DLL could be founded in paths 'c:\Work\Saleae\src\VanAnalyzer\Binaries\x64\Relea\' and 'c:\Work\Saleae\src\VanAnalyzer\Binaries\x86\Relea\'. Both x64 (Debug/Release) was sucessfully tested with Saleae Logic 1.2.18
 
 ## TODO
 - Better handling of finding the beginning of the first whole frame in the stream. (now sometimes it fails to decode the first frame, and sometimes it detects garbage as data)
 - Find a way to mark the Frame Check Sequence bytes as FCS instead of DATA
 - Implement GenerateSimulationData() method (now it has the default from the SampleAnalyzer)
+- To try plugin author update prj: current Binaries as builded as Debug, and so there are no possibility to start without installed Visual Studio 2019.
 
 
 [logic]: https://www.saleae.com/downloads
